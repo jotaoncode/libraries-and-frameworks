@@ -1,0 +1,286 @@
+{
+  "engine": "linux|Transformer|1.32.0|10b628fc3cd9f903237b9c31a6aba5ac4e6bc9c8|2020-08-24_06:14:32AM",
+  "containerized": false,
+  "host": "Ubuntu 20.04.1 LTS (Focal Fossa)",
+  "type": "build",
+  "state": "done",
+  "target_reference": "test.production",
+  "system": {
+    "type": "Linux",
+    "release": "5.4.0-48-generic",
+    "os": "Alpine Linux 3.11.6"
+  },
+  "source_image": {
+    "id": "sha256:65b5515cb71b3fd3f430a6473fb3efc66839a95ae43a72b093d3b6f0737720fb",
+    "name": "test.production:latest",
+    "size": 164628014,
+    "size_human": "165 MB",
+    "create_time": "2020-10-11T19:54:23Z",
+    "all_names": [
+      "test.production:latest"
+    ],
+    "docker_version": "19.03.8",
+    "architecture": "amd64"
+  },
+  "minified_image_size": 115828082,
+  "minified_image_size_human": "116 MB",
+  "minified_image": "test.production.slim",
+  "minified_image_has_data": true,
+  "minified_by": 1.421313477330998,
+  "artifact_location": "/home/jota/Downloads/dist_linux/.docker-slim-state/images/65b5515cb71b3fd3f430a6473fb3efc66839a95ae43a72b093d3b6f0737720fb/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "test.production-seccomp.json",
+  "apparmor_profile_name": "test.production-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": false,
+      "id": "sha256:d8b74300d5542f2825af898159205b02447506bc83fbed265db70223b9a360c0",
+      "full_name": "node:12-alpine",
+      "repo_name": "node",
+      "version_tag": "12-alpine",
+      "raw_tags": [
+        "node:12-alpine"
+      ],
+      "create_time": "2020-10-08T16:26:01Z",
+      "new_size": 89630231,
+      "new_size_human": "90 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2020-04-24T01:05:03Z",
+          "is_nop": true,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 5612304,
+          "size_human": "5.6 MB",
+          "params": "file:b91adb67b670d3a6ff9463e48b7def903ed516be66fc4282d22c53e41512be49 in /",
+          "command_snippet": "ADD file:b91adb67b670d3a6ff9463e48b7def903ed...",
+          "command_all": "ADD file:b91adb67b670d3a6ff9463e48b7def903ed516be66fc4282d22c53e41512be49 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2020-04-24T01:05:03Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/bin/sh\"]",
+          "command_snippet": "CMD [\"/bin/sh\"]",
+          "command_all": "CMD [\"/bin/sh\"]"
+        },
+        {
+          "type": "ENV",
+          "time": "2020-10-08T16:25:53Z",
+          "is_nop": true,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "NODE_VERSION=12.19.0",
+          "command_snippet": "ENV NODE_VERSION=12.19.0",
+          "command_all": "ENV NODE_VERSION=12.19.0"
+        },
+        {
+          "type": "RUN",
+          "time": "2020-10-08T16:25:58Z",
+          "is_nop": false,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 76395087,
+          "size_human": "76 MB",
+          "command_snippet": "RUN addgroup -g 1000 node && \\\n\tadduser -u 1...",
+          "command_all": "RUN addgroup -g 1000 node && \\\n\tadduser -u 1000 -G node -s /bin/sh -D node && \\\n\tapk add --no-cache         libstdc++ && \\\n\tapk add --no-cache --virtual .build-deps         curl && \\\n\tARCH= && \\\n\talpineArch=\"$(apk --print-arch)\" && \\\n\tcase \"${alpineArch##*-}\" in         x86_64)           ARCH='x64'           CHECKSUM=\"0d26ef0d4fa7ffe4f9f4a954bbf6172372528636acf2a69b0fc9ac22e247ac23\"           ;;         *) ;;       esac && \\\n\tif [ -n \"${CHECKSUM}\" ]; then     set -eu;     curl -fsSLO --compressed \"https://unofficial-builds.nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\";     echo \"$CHECKSUM  node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" | sha256sum -c - && \\\n\ttar -xJf \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner && \\\n\tln -s /usr/local/bin/node /usr/local/bin/nodejs;   else     echo \"Building from source\" && \\\n\tapk add --no-cache --virtual .build-deps-full         binutils-gold         g++         gcc         gnupg         libgcc         linux-headers         make         python2 && \\\n\tfor key in       4ED778F539E3634C779C87C6D7062848A1AB005C       94AE36675C464D64BAFA68DD7434390BDBE9B9C5       71DCFD284A79C3B38668286BC97EC7A07EDE3FC1       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600       C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       DD8F2338BAE7501E3DD5AC78C273792F7D83545D       A48C2BEE680E841632CD4E44F07496B3EB3C1762       108F52B48DB57BB0CC439B2997B01419BD92F80A       B9E2F5981AA6E0CD28160D9FF13993A75599653C     ; do       gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys \"$key\" ||       gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys \"$key\" ||       gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys \"$key\" ;     done && \\\n\tcurl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz\" && \\\n\tcurl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\" && \\\n\tgpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc && \\\n\tgrep \" node-v$NODE_VERSION.tar.xz\\$\" SHASUMS256.txt | sha256sum -c - && \\\n\ttar -xf \"node-v$NODE_VERSION.tar.xz\" && \\\n\tcd \"node-v$NODE_VERSION\" && \\\n\t./configure && \\\n\tmake -j$(getconf _NPROCESSORS_ONLN) V= && \\\n\tmake install && \\\n\tapk del .build-deps-full && \\\n\tcd .. && \\\n\trm -Rf \"node-v$NODE_VERSION\" && \\\n\trm \"node-v$NODE_VERSION.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt;   fi && \\\n\trm -f \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" && \\\n\tapk del .build-deps && \\\n\tnode --version && \\\n\tnpm --version",
+          "system_commands": [
+            "addgroup -g 1000 node",
+            "adduser -u 1000 -G node -s /bin/sh -D node",
+            "apk add --no-cache         libstdc++",
+            "apk add --no-cache --virtual .build-deps         curl",
+            "ARCH=",
+            "alpineArch=\"$(apk --print-arch)\"",
+            "case \"${alpineArch##*-}\" in         x86_64)           ARCH='x64'           CHECKSUM=\"0d26ef0d4fa7ffe4f9f4a954bbf6172372528636acf2a69b0fc9ac22e247ac23\"           ;;         *) ;;       esac",
+            "if [ -n \"${CHECKSUM}\" ]; then     set -eu;     curl -fsSLO --compressed \"https://unofficial-builds.nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\";     echo \"$CHECKSUM  node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" | sha256sum -c -",
+            "tar -xJf \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner",
+            "ln -s /usr/local/bin/node /usr/local/bin/nodejs;   else     echo \"Building from source\"",
+            "apk add --no-cache --virtual .build-deps-full         binutils-gold         g++         gcc         gnupg         libgcc         linux-headers         make         python2",
+            "for key in       4ED778F539E3634C779C87C6D7062848A1AB005C       94AE36675C464D64BAFA68DD7434390BDBE9B9C5       71DCFD284A79C3B38668286BC97EC7A07EDE3FC1       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600       C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       DD8F2338BAE7501E3DD5AC78C273792F7D83545D       A48C2BEE680E841632CD4E44F07496B3EB3C1762       108F52B48DB57BB0CC439B2997B01419BD92F80A       B9E2F5981AA6E0CD28160D9FF13993A75599653C     ; do       gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys \"$key\" ||       gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys \"$key\" ||       gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys \"$key\" ;     done",
+            "curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz\"",
+            "curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"",
+            "gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc",
+            "grep \" node-v$NODE_VERSION.tar.xz$\" SHASUMS256.txt | sha256sum -c -",
+            "tar -xf \"node-v$NODE_VERSION.tar.xz\"",
+            "cd \"node-v$NODE_VERSION\"",
+            "./configure",
+            "make -j$(getconf _NPROCESSORS_ONLN) V=",
+            "make install",
+            "apk del .build-deps-full",
+            "cd ..",
+            "rm -Rf \"node-v$NODE_VERSION\"",
+            "rm \"node-v$NODE_VERSION.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt;   fi",
+            "rm -f \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\"",
+            "apk del .build-deps",
+            "node --version",
+            "npm --version"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2020-10-08T16:25:58Z",
+          "is_nop": true,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "YARN_VERSION=1.22.5",
+          "command_snippet": "ENV YARN_VERSION=1.22.5",
+          "command_all": "ENV YARN_VERSION=1.22.5"
+        },
+        {
+          "type": "RUN",
+          "time": "2020-10-08T16:26:00Z",
+          "is_nop": false,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 7622724,
+          "size_human": "7.6 MB",
+          "command_snippet": "RUN apk add --no-cache --virtual .build-deps...",
+          "command_all": "RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar && \\\n\tfor key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys \"$key\" ||     gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys \"$key\" ||     gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys \"$key\" ;   done && \\\n\tcurl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz\" && \\\n\tcurl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc\" && \\\n\tgpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz && \\\n\tmkdir -p /opt && \\\n\ttar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ && \\\n\tln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn && \\\n\tln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg && \\\n\trm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz && \\\n\tapk del .build-deps-yarn && \\\n\tyarn --version",
+          "system_commands": [
+            "apk add --no-cache --virtual .build-deps-yarn curl gnupg tar",
+            "for key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys \"$key\" ||     gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys \"$key\" ||     gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys \"$key\" ;   done",
+            "curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz\"",
+            "curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc\"",
+            "gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz",
+            "mkdir -p /opt",
+            "tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/",
+            "ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn",
+            "ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg",
+            "rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz",
+            "apk del .build-deps-yarn",
+            "yarn --version"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2020-10-08T16:26:01Z",
+          "is_nop": true,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 116,
+          "size_human": "116 B",
+          "params": "file:238737301d47304174e4d24f4def935b29b3069c03c72ae8de97d94624382fce in /usr/local/bin/",
+          "command_snippet": "COPY file:238737301d47304174e4d24f4def935b29...",
+          "command_all": "COPY file:238737301d47304174e4d24f4def935b29b3069c03c72ae8de97d94624382fce /usr/local/bin/",
+          "target": "/usr/local/bin/",
+          "source_type": "file"
+        },
+        {
+          "type": "ENTRYPOINT",
+          "time": "2020-10-08T16:26:01Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exits": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"docker-entrypoint.sh\"]",
+          "command_snippet": "ENTRYPOINT [\"docker-entrypoint.sh\"]",
+          "command_all": "ENTRYPOINT [\"docker-entrypoint.sh\"]"
+        },
+        {
+          "type": "CMD",
+          "time": "2020-10-08T16:26:01Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exits": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"node\"]",
+          "command_snippet": "CMD [\"node\"]",
+          "command_all": "CMD [\"node\"]",
+          "raw_tags": [
+            "node:12-alpine"
+          ]
+        }
+      ]
+    },
+    {
+      "is_top_image": true,
+      "id": "sha256:65b5515cb71b3fd3f430a6473fb3efc66839a95ae43a72b093d3b6f0737720fb",
+      "full_name": "test.production:latest",
+      "repo_name": "test.production",
+      "version_tag": "latest",
+      "raw_tags": [
+        "test.production:latest"
+      ],
+      "create_time": "2020-10-11T19:54:23Z",
+      "new_size": 74997783,
+      "new_size_human": "75 MB",
+      "base_image_id": "sha256:d8b74300d5542f2825af898159205b02447506bc83fbed265db70223b9a360c0",
+      "instructions": [
+        {
+          "type": "WORKDIR",
+          "time": "2020-10-11T19:50:43Z",
+          "is_nop": true,
+          "local_image_exits": true,
+          "intermediate_image_id": "sha256:1d930b7b01a745e7dca9858b972ecc955960702eb3bb0779c760ba70300baf32",
+          "layer_index": 0,
+          "size": 0,
+          "params": "/app",
+          "command_snippet": "WORKDIR /app",
+          "command_all": "WORKDIR /app",
+          "system_commands": [
+            "mkdir -p /app"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2020-10-11T19:53:37Z",
+          "is_nop": true,
+          "local_image_exits": true,
+          "intermediate_image_id": "sha256:d2e6561936290c665dfc5246763d7f36db29498c11268ee9773d92ae365a59e4",
+          "layer_index": 0,
+          "size": 306038,
+          "size_human": "306 kB",
+          "params": "dir:1104a30eba1e17e06ba784493157e2622a52215f7f025901c796c0e6a52c0ba1 in .",
+          "command_snippet": "COPY dir:1104a30eba1e17e06ba784493157e2622a5...",
+          "command_all": "COPY dir:1104a30eba1e17e06ba784493157e2622a52215f7f025901c796c0e6a52c0ba1 .",
+          "target": ".",
+          "source_type": "dir"
+        },
+        {
+          "type": "RUN",
+          "time": "2020-10-11T19:54:23Z",
+          "is_nop": false,
+          "local_image_exits": true,
+          "intermediate_image_id": "sha256:7e5ecc2f246c00532c225c33463cda7a4d60b6f873d37e10219ce1d450ca1c19",
+          "layer_index": 0,
+          "size": 74691745,
+          "size_human": "75 MB",
+          "command_snippet": "RUN npm install --production && \\\n\tnpm run b...",
+          "command_all": "RUN npm install --production && \\\n\tnpm run build",
+          "system_commands": [
+            "npm install --production",
+            "npm run build"
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2020-10-11T19:54:23Z",
+          "is_last_instruction": true,
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exits": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"sh\",\"-c\",\"npm start\"]",
+          "command_snippet": "CMD [\"sh\",\"-c\",\"npm start\"]",
+          "command_all": "CMD [\"sh\",\"-c\",\"npm start\"]",
+          "raw_tags": [
+            "test.production:latest"
+          ]
+        }
+      ]
+    }
+  ]
+}
